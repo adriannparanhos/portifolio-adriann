@@ -1,0 +1,81 @@
+@use 'variables' as theme;
+@use 'mixins' as tools;
+
+.hero {
+  min-height: calc(100vh - 80px); 
+  @include tools.flex-center; 
+  text-align: center;
+  font-family: theme.$font-rocker;
+  
+  animation: fadeIn 1s ease-out;
+
+  &__greeting {
+    font-family: theme.$font-rocker; 
+    color: theme.$secondary-color; 
+    font-size: 1.2rem;
+    margin-bottom: theme.$spacing-md;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: theme.$text-light;
+    line-height: 1.2;
+    margin-bottom: theme.$spacing-lg;
+
+    .highlight {
+      color: theme.$primary-color;
+      text-shadow: 0 0 10px rgba(theme.$primary-color, 0.6); 
+    }
+  }
+
+  &__description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto theme.$spacing-xl; 
+    line-height: 1.6;
+  }
+
+  &__actions {
+    @include tools.flex-center;
+    gap: theme.$spacing-md;
+  }
+}
+
+.btn {
+  padding: 12px 32px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &--primary {
+    background-color: theme.$primary-color;
+    color: white;
+    border: 1px solid theme.$primary-color;
+
+    &:hover {
+      background-color: transparent;
+      box-shadow: 0 0 15px theme.$primary-color; 
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: theme.$text-light;
+    border: 1px solid theme.$text-light;
+
+    &:hover {
+      background-color: theme.$text-light;
+      color: theme.$bg-dark;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

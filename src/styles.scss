@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/variables' as var;
+@import 'styles/reset';
+
+
+body {
+  background-color: var.$bg-dark;
+  color: var.$text-light;
+  font-family: var.$font-main;
+}
+
+.starry-background {
+  background-color: #110f24;
+
+  background-image:
+    radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 5px),
+    radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 3px);
+
+  background-size: 550px 550px, 350px 350px;
+
+  background-position: 0 0, 200px 200px;
+}
