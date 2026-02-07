@@ -1,19 +1,19 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; // Essencial! Mantém o tamanho real dos elementos
+  box-sizing: border-box; 
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  -webkit-font-smoothing: antialiased; // Fontes mais nítidas no Mac
+  -webkit-font-smoothing: antialiased; 
 }
 
 ul {
-  list-style: none; // Remove bolinhas de listas
+  list-style: none; 
 }
 
 a {
-  text-decoration: none; // Remove sublinhado padrão
+  text-decoration: none; 
   color: inherit;
 }

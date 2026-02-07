@@ -1,4 +1,11 @@
+@use 'variables' as theme;
+@use 'mixins' as tools;
+
 .footer {
+    @include tools.flex-center;
+    justify-content: flex-end; 
+    gap: 1rem;
+    
     img {
         height: 30px;
     }
