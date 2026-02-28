@@ -6,6 +6,7 @@
     grid-template-columns: 1fr 1fr;
     grid-column: 1;
     padding-top: theme.$spacing-padding-top;
+    margin-bottom: 5rem;
 
     &__info {
         justify-self: center;
