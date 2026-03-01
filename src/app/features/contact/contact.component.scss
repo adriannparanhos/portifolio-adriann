@@ -1,0 +1,129 @@
+@use 'variables' as theme;
+@use 'mixins' as tools;
+
+.contact-section {
+  min-height: calc(100vh - 80px);
+  @include tools.flex-center;
+  padding: theme.$spacing-xl 20px;
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 600px;
+  
+  background: rgba(17, 15, 36, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: theme.$spacing-xl;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: theme.$spacing-xl;
+
+  h2 {
+    font-size: 2.5rem;
+    color: theme.$text-light;
+    margin-bottom: theme.$spacing-sm;
+
+    .highlight {
+      color: theme.$primary-color;
+      font-family: theme.$font-code;
+    }
+  }
+
+  p {
+    color: white;
+    font-size: 1.1rem;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: theme.$spacing-md;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    color: theme.$text-light;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: theme.$text-light;
+    font-family: theme.$font-main;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: theme.$primary-color;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 10px rgba(theme.$primary-color, 0.2);
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    &.is-invalid {
+      border-color: #ff4d4d;
+      background: rgba(255, 77, 77, 0.05);
+    }
+  }
+
+  textarea {
+    resize: vertical; 
+  }
+
+  .error-msg {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    margin-top: 4px;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+.btn-submit {
+  margin-top: theme.$spacing-md;
+  padding: 14px;
+  background-color: theme.$primary-color;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    background-color: darken(theme.$primary-color, 10%);
+    box-shadow: 0 0 20px rgba(theme.$primary-color, 0.5);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
