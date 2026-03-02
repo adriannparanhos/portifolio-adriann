@@ -153,8 +153,6 @@
     to { transform: rotateX(var(--orbit-rotate-x)) rotateY(var(--orbit-rotate-y)) rotateZ(360deg); }
 }
 
-// --- NOVO KEYFRAMES PARA EFEITO ÁTOMO COMPLETO (X, Y, Z) ---
-// No hover, os anéis giram sutilmente em X e Y, criando o entrelaçamento complexo
 @keyframes spinOrbitAtom {
     from { transform: rotateX(var(--orbit-rotate-x)) rotateY(var(--orbit-rotate-y)) rotateZ(0deg); }
     to { transform: rotateX(calc(var(--orbit-rotate-x) + 360deg)) rotateY(calc(var(--orbit-rotate-y) + 360deg)) rotateZ(360deg); }
