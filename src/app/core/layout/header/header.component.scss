@@ -13,19 +13,29 @@
 
     &__list {
         @include tools.flex-center;
-        gap: theme.$spacing-md;
+        gap: theme.$spacing-lg;
         font-size: theme.$font-size-lg;
     }
 
     &__link {
+        font-size: theme.$font-size-header;
         text-decoration: none;
         color: theme.$text-light;
         font-family: theme.$font-code; 
+        transition: 0.5s;
         
         &:hover {
             color: theme.$primary-color;
+            transition: 0.5s;
+        }
+        
+        &.header__active-link {
+            color: theme.$primary-color;
+            text-shadow: 0 0 10px rgba(theme.$primary-color, 0.6);
+            font-weight: bold;
         }
     }
+
 
     &__icons {
         grid-column: 3;

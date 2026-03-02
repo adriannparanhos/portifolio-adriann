@@ -12,14 +12,14 @@
   &__greeting {
     font-family: theme.$font-rocker; 
     color: theme.$secondary-color; 
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-bottom: theme.$spacing-md;
     text-transform: uppercase;
     letter-spacing: 2px;
   }
 
   &__title {
-    font-size: 3.5rem;
+    font-size: 5rem;
     font-weight: 700;
     color: theme.$text-light;
     line-height: 1.2;
@@ -32,8 +32,8 @@
   }
 
   &__description {
-    font-size: 1.2rem;
-    max-width: 600px;
+    font-size: 2rem;
+    max-width: 700px;
     margin: 0 auto theme.$spacing-xl; 
     line-height: 1.6;
   }
@@ -54,6 +54,7 @@
 
   &--primary {
     background-color: theme.$primary-color;
+    font-size: theme.$font-size-button;
     color: white;
     border: 1px solid theme.$primary-color;
 
@@ -65,6 +66,7 @@
 
   &--outline {
     background-color: transparent;
+    font-size: theme.$font-size-button;
     color: theme.$text-light;
     border: 1px solid theme.$text-light;
 

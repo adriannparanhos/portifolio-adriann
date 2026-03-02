@@ -4,27 +4,50 @@
 .about {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column: 1;
+    align-items: center; 
+    gap: 4rem; 
     padding-top: theme.$spacing-padding-top;
     margin-bottom: 5rem;
 
     &__info {
-        justify-self: center;
         max-width: 600px;
+        justify-self: center;
     }
 
-    h1 {
-        font-size: 50px;
+    &__title {
+        font-size: 3.5rem;
+        color: theme.$text-light;
+        margin-bottom: 1.5rem;
+        font-family: theme.$font-code; 
+        
+        span {
+            color: theme.$primary-color;
+            text-shadow: 0 0 15px rgba(theme.$primary-color, 0.4);
+        }
     }
 
-    p {
-        font-size: 30px;
+    &__description {
+        font-size: 1.15rem; 
+        line-height: 1.8; 
+        color: white;
+        margin-bottom: 1rem;
+        text-align: justify;
+        
+        strong {
+            color: theme.$text-light;
+            font-weight: bold;
+        }
     }
 
     &__img {
         display: flex;
         justify-content: center;
-        animation: floating 6s ease-in-out infinite;
+        
+        img {
+            max-width: 100%;
+            border-radius: 20px; 
+            animation: floating 6s ease-in-out infinite;
+        }
     }  
 }
 
@@ -64,17 +87,19 @@
     }
 
     &__container {
-        width: 150px;
-        height: 150px;
-        border: 2px solid theme.$primary-color;
+        width: 130px;
+        height: 130px;
+        background: rgba(17, 15, 36, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
-        color: white;
-        font-size: 1.2rem;
-        font-weight: bold;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        gap: 0.5rem;
 
         p {
             margin-top: 0.5rem;
@@ -82,8 +107,9 @@
     }
 
     &__container:hover {
-        transform: scale(1.05); 
-        transition: transform 0.3s ease;  
+        transform: translateY(-8px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        border-color: rgba(theme.$primary-color, 0.5);
     }
 
     img {
