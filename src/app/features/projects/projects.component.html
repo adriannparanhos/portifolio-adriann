@@ -1,71 +1,35 @@
 <div class="hero">
-    <div class="hero__grid">
-        <div class="hero__container">
+    <div class="hero__container">
+        
+        @for (project of myProjects; track project.id) {
             <div class="hero__card">
                 <div class="hero__content">
-                    <img src="assets/images/projeto.jpg" alt="Projeto 1">
+                    
+                    <img [src]="project.imageUrl" [alt]="project.title">
+                    
                     <div class="hero__text">
-                        <h2>Projeto 1</h2>
-                        <p>Descrição do projeto 1</p>
+                        <h2>{{ project.title }}</h2>
+                        <p>{{ project.description }}</p>
+                        
+                        <div class="hero__tags">
+                            @for (tech of project.technologies; track tech) {
+                                <span class="tag">{{ tech }}</span>
+                            }
+                        </div>
                     </div>
-                    <button>Ver projeto</button>
-                </div>
-            </div>
-    
-            <div class="hero__card">
-                <div class="hero__content">
-                    <img src="assets/images/projeto.jpg" alt="Projeto 2">
-                    <div class="hero__text">
-                        <h2>Projeto 2</h2>
-                        <p>Descrição do projeto 2</p>
+                    
+                    <div class="hero__actions">
+                        @if (project.liveUrl) {
+                            <a [href]="project.liveUrl" target="_blank" class="hero__btn">Ver Projeto</a>
+                        }
+                        @if (project.repositoryUrl) {
+                            <a [href]="project.repositoryUrl" target="_blank" class="hero__btn">Ver Código</a>
+                        }
                     </div>
-                    <button>Ver projeto</button>
-                </div>
-            </div>
-    
-            <div class="hero__card">
-                <div class="hero__content">
-                    <img src="assets/images/projeto.jpg" alt="Projeto 3">
-                    <div class="hero__text">
-                        <h2>Projeto 3</h2>
-                        <p>Descrição do projeto 3</p>
-                    </div>
-                    <button>Ver projeto</button>
-                </div>
-            </div>
 
-            <div class="hero__card">
-                <div class="hero__content">
-                    <img src="assets/images/projeto.jpg" alt="Projeto 3">
-                    <div class="hero__text">
-                        <h2>Projeto 4</h2>
-                        <p>Descrição do projeto 4</p>
-                    </div>
-                    <button>Ver projeto</button>
                 </div>
             </div>
+        }
 
-            <div class="hero__card">
-                <div class="hero__content">
-                    <img src="assets/images/projeto.jpg" alt="Projeto 3">
-                    <div class="hero__text">
-                        <h2>Projeto 5</h2>
-                        <p>Descrição do projeto 3</p>
-                    </div>
-                    <button>Ver projeto</button>
-                </div>
-            </div>
-
-            <div class="hero__card">
-                <div class="hero__content">
-                    <img src="assets/images/projeto.jpg" alt="Projeto 3">
-                    <div class="hero__text">
-                        <h2>Projeto 6</h2>
-                        <p>Descrição do projeto 6</p>
-                    </div>
-                    <button>Ver projeto</button>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
