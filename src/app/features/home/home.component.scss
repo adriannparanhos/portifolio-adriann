@@ -60,6 +60,7 @@
 
     &:hover {
       background-color: transparent;
+      color: theme.$primary-color;
       box-shadow: 0 0 15px theme.$primary-color; 
     }
   }

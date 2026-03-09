@@ -8,7 +8,12 @@
         </ul>
     </nav>
     <div class="header__icons">
-        <img src="assets/images/icons/moon-svgrepo-com.svg" alt="Modo Escuro" class="header__imgs">
+        <img 
+            [src]="isDarkMode ? 'assets/images/icons/moon-svgrepo-com.svg' : 'assets/images/icons/sun-svgrepo-com.svg'" 
+            [alt]="isDarkMode ? 'Modo Claro' : 'Modo Escuro'" 
+            class="header__imgs"
+            (click)="toggleTheme()"
+        >
         <img src="https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/BR.svg" alt="">
         <img src="https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/US.svg" alt="">
     </div>

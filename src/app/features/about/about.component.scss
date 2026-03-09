@@ -27,9 +27,9 @@
     }
 
     &__description {
-        font-size: 1.15rem; 
+        font-size: 1.25rem; 
         line-height: 1.8; 
-        color: white;
+        color: theme.$primary-color;
         margin-bottom: 1rem;
         text-align: justify;
         
@@ -40,7 +40,7 @@
     }
 
     &__system-container {
-        width: 320px;
+        // width: 320px;
         height: 320px;
         position: relative;
         display: flex;
@@ -84,7 +84,7 @@
         position: absolute;
         border-radius: 50%;
         background-color: transparent;
-        border: 1px dashed rgba(theme.$primary-color, 0.35); 
+        border: 4px dashed color-mix(in srgb, theme.$primary-color, transparent 65%); 
         transform-style: preserve-3d;
         transform: rotateX(var(--orbit-rotate-x)) rotateY(var(--orbit-rotate-y));
         animation: spinOrbit linear infinite; 
@@ -193,32 +193,33 @@
     &__container {
         width: 130px;
         height: 130px;
-        background: rgba(17, 15, 36, 0.4);
+        background: theme.$bg-glass;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid theme.$border-glass;
         border-radius: 16px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
         gap: 0.5rem;
 
         p {
             margin-top: 0.5rem;
+            color: theme.$text-light;
+            font-weight: 500;
         }
     }
 
     &__container:hover {
         transform: translateY(-8px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        border-color: rgba(theme.$primary-color, 0.5);
+        box-shadow: 0 8px 32px color-mix(in srgb, theme.$primary-color, transparent 80%);
+        border-color: color-mix(in srgb, theme.$primary-color, transparent 50%);
     }
 
     img {
         width: 80px;
         height: 80px;
     }
-
 }

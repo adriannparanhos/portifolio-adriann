@@ -1,7 +1,30 @@
-$primary-color: #8B008B;
-$secondary-color: #2ecc71;
-$bg-dark: #2c3e50;
-$text-light: #ecf0f1;
+:root {
+  --primary-color: #8B008B;
+  --secondary-color: #2ecc71;
+  --bg-main: #110f24; 
+  --text-main: #ecf0f1; 
+  
+  --glass-bg: rgba(17, 15, 36, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+  --primary-color: #007bff; 
+  --secondary-color: #ffc107; 
+  --bg-main: #eef5fb;
+  --text-main: #0f2338; 
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 123, 255, 0.15);
+}
+
+$primary-color: var(--primary-color);
+$secondary-color: var(--secondary-color);
+$bg-dark: var(--bg-main);
+$text-light: var(--text-main);
+
+$bg-glass: var(--glass-bg);
+$border-glass: var(--glass-border);
 
 $font-main: 'Roboto', sans-serif;
 $font-code: 'Fira Code', monospace;
@@ -11,12 +34,10 @@ $spacing-sm: 8px;
 $spacing-md: 16px;
 $spacing-lg: 32px;
 $spacing-xl: 64px;
+$spacing-padding-top: 50px;
 
 $font-size-base: 16px;
 $font-size-lg: 20px;
 $font-size-xl: 24px;
-
-$spacing-padding-top: 50px;
-
 $font-size-button: 1.2rem;
 $font-size-header: 1.5rem;

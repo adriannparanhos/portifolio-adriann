@@ -18,20 +18,19 @@
     }
 
     &__card {
-        background: rgba(17, 15, 36, 0.4); 
+        background: theme.$bg-glass; 
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px); 
-        border: 1px solid rgba(255, 255, 255, 0.1); 
-
+        border: 1px solid theme.$border-glass; 
         border-radius: 12px; 
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
         overflow: hidden; 
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 
         &:hover {
             transform: translateY(-8px); 
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-            border-color: rgba(theme.$primary-color, 0.5); 
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            border-color: color-mix(in srgb, theme.$primary-color, transparent 50%); 
         }
     }
 
@@ -45,7 +44,7 @@
         width: 100%; 
         height: 220px; 
         object-fit: cover; 
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid theme.$border-glass;
     }
 
     &__text {
@@ -59,7 +58,8 @@
         }
 
         p {
-            color: white;
+            color: theme.$text-light;
+            opacity: 0.85; 
             line-height: 1.6;
         }
     }
@@ -67,7 +67,6 @@
     button {
         align-self: flex-end; 
         margin: 0 1.5rem 1.5rem 0; 
-        
         padding: 10px 24px;
         font-size: 1rem;
         font-weight: bold;
@@ -81,8 +80,8 @@
 
         &:hover {
             background-color: theme.$primary-color;
-            color: white;
-            box-shadow: 0 0 15px rgba(theme.$primary-color, 0.6); 
+            color: #ffffff; 
+            box-shadow: 0 0 15px color-mix(in srgb, theme.$primary-color, transparent 40%); 
         }
     }
 }
