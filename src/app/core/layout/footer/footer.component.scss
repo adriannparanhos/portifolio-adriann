@@ -2,11 +2,65 @@
 @use 'mixins' as tools;
 
 .footer {
-    @include tools.flex-center;
-    justify-content: flex-end; 
-    gap: 1rem;
-    
-    img {
-        height: 30px;
+    width: 100%;
+    background: theme.$bg-glass; 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid theme.$border-glass;
+    padding: theme.$spacing-md 0;
+    margin-top: auto; 
+
+    &__content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+        @include tools.flex-center;
+        justify-content: space-between; 
+        
+        @include tools.mobile {
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+    }
+
+    &__copy {
+        color: theme.$text-light;
+        font-family: theme.$font-code;
+        font-size: 0.95rem;
+        opacity: 0.9;
+
+        .highlight {
+            color: theme.$primary-color;
+            font-weight: bold;
+        }
+    }
+
+    &__socials {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+
+        img {
+            height: 28px; 
+            width: auto;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        &:hover {
+            img {
+                transform: translateY(-4px);
+                filter: drop-shadow(0 4px 8px color-mix(in srgb, theme.$primary-color, transparent 40%));
+            }
+        }
     }
 }

@@ -1,0 +1,52 @@
+<div class="login login__container">
+  <div class="login__card">
+    <h2 class="login__title">Acesso Restrito</h2>
+    <p class="login__subtitle">Área administrativa do Portfólio</p>
+
+    @if (errorMessage()) {
+      <div class="login__alert login__alert--error">
+        {{ errorMessage() }}
+      </div>
+    }
+
+    <form class="login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+      <div class="login__group">
+        <label class="login__label" for="login">Usuário</label>
+        <input 
+          class="login__input"
+          [class.login__input--invalid]="loginForm.get('login')?.invalid && loginForm.get('login')?.touched"
+          id="login" 
+          type="text" 
+          formControlName="login" 
+          placeholder="Digite seu usuário"
+        >
+      </div>
+
+      <div class="login__group">
+        <label class="login__label" for="password">Senha</label>
+        <input 
+          class="login__input"
+          [class.login__input--invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+          id="password" 
+          type="password" 
+          formControlName="password" 
+          placeholder="Digite sua senha"
+        >
+      </div>
+
+      <button 
+        class="login__button" 
+        [class.login__button--loading]="isLoading()"
+        type="submit" 
+        [disabled]="loginForm.invalid || isLoading()">
+        @if (isLoading()) {
+          Entrando...
+        } @else {
+          Entrar no Painel
+        }
+      </button>
+
+    </form>
+  </div>
+</div>

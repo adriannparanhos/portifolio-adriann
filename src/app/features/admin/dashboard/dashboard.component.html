@@ -1,0 +1,51 @@
+<div class="dashboard dashboard__container">
+  
+  <header class="dashboard__header">
+    <div>
+      <h1 class="dashboard__title">Painel de Administração</h1>
+      <p class="dashboard__subtitle">Gerenciamento de contatos do portfólio</p>
+    </div>
+    <button class="dashboard__logout" (click)="logout()">
+      Sair do Sistema
+    </button>
+  </header>
+
+  <main class="dashboard__content">
+    @if (isLoading()) {
+      <div class="dashboard__loading">
+        <p>Carregando mensagens...</p>
+      </div>
+    } @else {
+      
+      <div class="dashboard__table-wrapper">
+        <table class="table">
+          <thead class="table__head">
+            <tr class="table__row">
+              <th class="table__header">Data</th>
+              <th class="table__header">Nome</th>
+              <th class="table__header">E-mail</th>
+              <th class="table__header">Mensagem</th>
+            </tr>
+          </thead>
+          <tbody class="table__body">
+            @for (msg of messages(); track msg.id) {
+              <tr class="table__row">
+                <td class="table__cell table__cell--date">{{ msg.createdAt | date:'dd/MM/yyyy HH:mm' }}</td>
+                <td class="table__cell table__cell--name">{{ msg.name }}</td>
+                <td class="table__cell table__cell--email">{{ msg.email }}</td>
+                <td class="table__cell table__cell--message">{{ msg.message }}</td>
+              </tr>
+            } @empty {
+              <tr class="table__row">
+                <td class="table__cell table__cell--empty" colspan="4">
+                  Nenhuma mensagem recebida ainda.
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+    }
+  </main>
+</div>

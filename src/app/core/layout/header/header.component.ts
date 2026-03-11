@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeService } from '../../../shared/services/theme.service';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,9 @@ import { ThemeService } from '../../../shared/services/theme.service';
 })
 export class HeaderComponent {
   public isDarkMode: boolean = true;
+  public translationService = inject(TranslationService);
+  
+  public t = this.translationService.t;
 
   constructor(private themeService: ThemeService) {}
 
@@ -22,5 +26,10 @@ export class HeaderComponent {
 
   public toggleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  changeLanguage(lang: 'pt' | 'en') {
+    this.translationService.setLanguage(lang);
+    console.log(`Idioma alterado para: ${lang}`);
   }
 }

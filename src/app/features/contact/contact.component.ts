@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from './data/services/contact.service';
 import { ContactRequest } from './domain/models/contact.model';
+import { TranslationService } from '../../core/services/translation.service';
 
 @Component({
   selector: 'app-contact',
@@ -12,6 +13,9 @@ import { ContactRequest } from './domain/models/contact.model';
 })
 export class ContactComponent {
   public contactForm!: FormGroup;
+  public translationService = inject(TranslationService);
+  public t = this.translationService.t;
+  public isLoading = signal(false);
 
   constructor(private fb: FormBuilder, private contactService: ContactService) {
     this.buildForm();
@@ -38,7 +42,7 @@ export class ContactComponent {
       next: () => {
         this.contactForm.reset();
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Erro ao enviar mensagem:', err);
         alert('O servidor (Java) ainda está dormindo. Acorde-o em breve!');
       }

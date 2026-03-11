@@ -1,10 +1,10 @@
 <header class="header">
     <nav class="header__nav">
         <ul class="header__list">
-            <li><a class="header__link" routerLink="/home" routerLinkActive="header__active-link">Home</a></li>
-            <li><a class="header__link" routerLink="/about" routerLinkActive="header__active-link">About</a></li>
-            <li><a class="header__link" routerLink="/projects" routerLinkActive="header__active-link">Projects</a></li>
-            <li><a class="header__link" routerLink="/contact" routerLinkActive="header__active-link">Contact</a></li>
+            <li><a class="header__link" routerLink="/home" routerLinkActive="header__active-link">{{ t().NAV.HOME }}</a></li>
+            <li><a class="header__link" routerLink="/about" routerLinkActive="header__active-link">{{ t().NAV.ABOUT }}</a></li>
+            <li><a class="header__link" routerLink="/projects" routerLinkActive="header__active-link">{{ t().NAV.PROJECTS }}</a></li>
+            <li><a class="header__link" routerLink="/contact" routerLinkActive="header__active-link">{{ t().NAV.CONTACT }}</a></li>
         </ul>
     </nav>
     <div class="header__icons">
@@ -14,7 +14,7 @@
             class="header__imgs"
             (click)="toggleTheme()"
         >
-        <img src="https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/BR.svg" alt="">
-        <img src="https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/US.svg" alt="">
+        <img src="https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/BR.svg" (click)="changeLanguage('pt')" [class.active]="translationService.getActiveLang()() === 'pt'" alt="">
+        <img src="https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/US.svg" (click)="changeLanguage('en')" [class.active]="translationService.getActiveLang()() === 'en'" alt="">
     </div>
 </header>

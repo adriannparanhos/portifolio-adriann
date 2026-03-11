@@ -37,6 +37,11 @@
             color: theme.$text-light;
             font-weight: bold;
         }
+
+        ::ng-deep strong {
+            color: white; // Retorna a cor magenta/destaque
+            font-weight: 600;
+        }
     }
 
     &__system-container {

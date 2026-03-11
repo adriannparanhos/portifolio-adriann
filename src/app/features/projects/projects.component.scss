@@ -40,11 +40,15 @@
         height: 100%; 
     }
 
-    img {
-        width: 100%; 
-        height: 220px; 
-        object-fit: cover; 
+    &__img {
+        width: 100%;
+        height: 320px;
+        min-height: 320px;
+        max-height: 220px;
+        flex-shrink: 0;
+        object-fit: cover;
         border-bottom: 1px solid theme.$border-glass;
+        display: block; 
     }
 
     &__text {

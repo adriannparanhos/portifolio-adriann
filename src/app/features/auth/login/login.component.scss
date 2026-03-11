@@ -1,0 +1,146 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.login {
+  &__container {
+    @include flex-center;
+    min-height: 100vh;
+    
+    background-color: $bg-dark;
+    color: $text-light;
+    font-family: $font-main;
+    padding: $spacing-md;
+  }
+
+  &__card {
+    background-color: $bg-glass;
+    border: 1px solid $border-glass;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    padding: $spacing-lg;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+    @include mobile {
+      padding: $spacing-md;
+      max-width: 90%;
+    }
+  }
+
+  &__title {
+    font-family: $font-rocker;
+    font-size: $font-size-xl;
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  &__subtitle {
+    font-size: $font-size-base;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  &__alert {
+    padding: $spacing-md;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    margin-bottom: $spacing-md;
+    text-align: center;
+
+    &--error {
+      background-color: rgba(255, 77, 77, 0.15);
+      color: #ff4d4d;
+      border: 1px solid rgba(255, 77, 77, 0.3);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  &__input {
+    background-color: rgba(0, 0, 0, 0.15);
+    color: $text-light;
+    border: 1px solid $border-glass;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-family: $font-main;
+    font-size: $font-size-base;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+
+    // Ajuste específico para o  não ficar invisível no Light Mode
+    [data-theme="light"] & {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 5px $primary-color;
+    }
+
+    &::placeholder {
+      color: $text-light;
+      opacity: 0.5;
+    }
+
+    &--invalid {
+      border-color: #ff4d4d;
+      
+      &:focus {
+        box-shadow: 0 0 5px #ff4d4d;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: $spacing-sm;
+    background-color: $primary-color;
+    color: #ffffff; 
+    border: none;
+    padding: $spacing-md;
+    border-radius: 6px;
+    font-family: $font-main;
+    font-size: $font-size-button;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: $secondary-color;
+      color: $bg-dark; 
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background-color: $border-glass;
+      color: $text-light;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &--loading {
+      opacity: 0.8;
+      cursor: wait;
+    }
+  }
+}

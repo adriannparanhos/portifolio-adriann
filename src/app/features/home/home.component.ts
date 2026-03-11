@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslationService } from '../../core/services/translation.service';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +9,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-
+  public translationService = inject(TranslationService);
+  public t = this.translationService.t;
 }
