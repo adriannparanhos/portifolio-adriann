@@ -12,7 +12,7 @@ export const routes: Routes = [
     },
     {
         path: 'admin',
-        canActivate: [authGuard], // <-- O Segurança fica plantado aqui
+        canActivate: [authGuard], 
         loadComponent: () => import('./features/admin/dashboard/dashboard.component').then(m => m.DashboardComponent)
     },
     {

@@ -7,7 +7,6 @@ import { jwtInterceptor } from './core/interceptors/jwt.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
-    provideHttpClient(),
     provideHttpClient(withFetch(), withInterceptors([jwtInterceptor]))
   ]
 };
