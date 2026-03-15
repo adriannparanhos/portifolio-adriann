@@ -9,7 +9,7 @@ import { tap } from 'rxjs';
 })
 export class AuthService {
   private http = inject(HttpClient);
-  private apiUrl = `${environment.apiUrl}/auth/login`;
+  private apiUrl = `${environment.apiUrl}/api/auth/login`;
 
   private loggedInSignal = signal<boolean>(this.hasToken());
 
