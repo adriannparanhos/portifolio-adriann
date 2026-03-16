@@ -15,7 +15,9 @@ export class ContactComponent {
   public contactForm!: FormGroup;
   public translationService = inject(TranslationService);
   public t = this.translationService.t;
+  
   public isLoading = signal(false);
+  public isSuccess = signal(false); 
 
   constructor(private fb: FormBuilder, private contactService: ContactService) {
     this.buildForm();
@@ -35,21 +37,28 @@ export class ContactComponent {
       return;
     }
 
+    this.isLoading.set(true); 
     const requestData: ContactRequest = this.contactForm.value;
 
     this.contactService.sendMessage(requestData).subscribe({
       next: () => {
+        this.isLoading.set(false);
         this.contactForm.reset();
+        this.isSuccess.set(true); 
       },
       error: (err: any) => {
+        this.isLoading.set(false);
         console.error('Erro ao enviar mensagem:', err);
-        alert('O servidor (Java) ainda está dormindo. Acorde-o em breve!');
       }
-    })
+    });
   }
 
   public isFieldInvalid(fieldName: string): boolean {
     const field = this.contactForm.get(fieldName);
     return field ? field.invalid && (field.dirty || field.touched) : false;
+  }
+  
+  public sendAnotherMessage(): void {
+    this.isSuccess.set(false);
   }
 }
