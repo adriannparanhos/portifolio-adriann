@@ -9,7 +9,7 @@ import { environment } from '../../../../../environments/environment';
 })
 export class ContactService {
   private http = inject(HttpClient);
-  private apiUrl = `${environment.apiUrl}/contacts`;
+  private apiUrl = `${environment.apiUrl}/api/contacts`;
 
   getMessages(): Observable<ContactMessageResponse[]> {
     return this.http.get<ContactMessageResponse[]>(this.apiUrl);
