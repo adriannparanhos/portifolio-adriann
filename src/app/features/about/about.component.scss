@@ -39,13 +39,12 @@
         }
 
         ::ng-deep strong {
-            color: white; // Retorna a cor magenta/destaque
+            color: theme.$text-light;
             font-weight: 600;
         }
     }
 
     &__system-container {
-        // width: 320px;
         height: 320px;
         position: relative;
         display: flex;

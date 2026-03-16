@@ -48,7 +48,6 @@ export class ContactComponent {
       },
       error: (err: any) => {
         this.isLoading.set(false);
-        console.error('Erro ao enviar mensagem:', err);
       }
     });
   }
