@@ -1,5 +1,12 @@
 <header class="header">
-    <nav class="header__nav">
+
+    <button class="header__hamburger" (click)="toggleMenu()" [class.is-active]="isMenuOpen()" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="header__nav" [class.is-open]="isMenuOpen()">
         <ul class="header__list">
             <li><a class="header__link" routerLink="/home" routerLinkActive="header__active-link">{{ t().NAV.HOME }}</a></li>
             <li><a class="header__link" routerLink="/about" routerLinkActive="header__active-link">{{ t().NAV.ABOUT }}</a></li>

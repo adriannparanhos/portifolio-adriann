@@ -23,8 +23,8 @@ export class ProjectsComponent {
           : 'Sistema corporativo Full Stack focado na gestão e automação de orçamentos comerciais. A aplicação digitaliza fluxos de trabalho complexos, otimizando o tempo de resposta e reduzindo drasticamente erros operacionais.',
         technologies: ['Java', 'Spring Boot', 'Angular', 'PostgreSQL', 'Docker'],
         imageUrl: 'assets/images/projetos/projeto1.png', 
-        liveUrl: 'https://seulink-de-teste.com',
-        repositoryUrl: 'https://github.com/seu-usuario/repo-saas' 
+        liveUrl: '',
+        repositoryUrl: '' 
       }
     ];
   });

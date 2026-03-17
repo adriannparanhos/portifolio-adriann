@@ -10,10 +10,15 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
         padding: 0 40px;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
         
         @include tools.mobile {
             grid-template-columns: 1fr; 
             padding: 0 20px;
+            gap: 1.5rem;
         }
     }
 
@@ -32,6 +37,12 @@
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
             border-color: color-mix(in srgb, theme.$primary-color, transparent 50%); 
         }
+
+        @include tools.mobile {
+            &:hover {
+                transform: none;
+            }
+        }
     }
 
     &__content {
@@ -42,8 +53,8 @@
 
     &__img {
         width: 100%;
-        height: 320px;
-        min-height: 320px;
+        height: 220px;
+        min-height: 220px;
         max-height: 220px;
         flex-shrink: 0;
         object-fit: cover;

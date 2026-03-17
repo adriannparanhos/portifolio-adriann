@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ThemeService } from '../../../shared/services/theme.service';
@@ -12,6 +12,7 @@ import { TranslationService } from '../../services/translation.service';
 })
 export class HeaderComponent {
   public isDarkMode: boolean = true;
+  public isMenuOpen = signal(false);
   public translationService = inject(TranslationService);
   
   public t = this.translationService.t;
@@ -31,5 +32,13 @@ export class HeaderComponent {
   changeLanguage(lang: 'pt' | 'en') {
     this.translationService.setLanguage(lang);
     console.log(`Idioma alterado para: ${lang}`);
+  }
+
+  public toggleMenu(): void {
+    this.isMenuOpen.update(state => !state);
+  }
+
+  public closeMenu(): void {
+    this.isMenuOpen.set(false);
   }
 }
